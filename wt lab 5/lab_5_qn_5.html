@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+</head>
+<body>
+		<form>
+
+			<label for="fname">First Name: </label>
+			<input id="fname" type="text" name="First Name" placeholder="Enter First Name">
+			<br>
+
+			<label for="lname">Last Name: </label>
+			<input id="lname"type="text" name="Last Name" placeholder="Enter Last Name">
+			<br>
+			<label>Email :</label>
+			<input id="lag" type="name" name="Email" placeholder="example@gmail.com">
+			<br>
+			<label>Password :</label>
+			<input id="lag" type="password" name="password" placeholder="Password">
+			<br>
+			<label>
+				<input type="checkbox" > I agree to the terms & conditions
+			</label>
+			<button type="submit" onclick="valid()">Submit </button>
+
+		</form>
+		<script type="text/javascript">
+			function valid(){
+				var c = document.getElementById('lag').value
+					if(c=='\0'){
+						document.write(NOT Valid);
+					}
+					else{
+						document.write(Valid);
+					}
+				
+			}
+		</script>
+</body>
+</html>

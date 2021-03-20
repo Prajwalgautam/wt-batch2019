@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alter Visibility</title>
+	<style type="text/css">
+		#pic{
+			width: 50%;
+		}
+	</style>
+</head>
+<body>
+	<img id="pic" src="page.jpg">
+	<br>
+	<button onclick="hide()">Hide</button>
+	<button onclick="visi()">Visible</button>
+	<script type="text/javascript">
+		function hide(){
+			document.getElementById("pic").style.visibility="hidden";
+		}
+		function visi(){
+			document.getElementById("pic").style.visibility="visible";
+		}
+	</script>
+</body>
+</html>

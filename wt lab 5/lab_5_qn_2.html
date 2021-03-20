@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style type="text/css">
+
+		.plane1{
+			height: 500px;
+			width: 900px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 0;
+		}
+		.plane2{
+			height: 500px;
+			width: 900px;
+			position: absolute;
+			top: 50px;
+			left: 110px;
+			z-index: 0;
+		}
+		.plane3{
+			height: 500px;
+			width: 900px;
+			position: absolute;
+			top: 100px;
+			left: 220px;
+			z-index:0;
+		}
+	</style>
+	<title>Stacking</title>
+</head>
+<body>
+		<img class="plane1" id="g1" onclick="toTop('g1');" src="pics/pic2.jpg">
+		<img class="plane2" id="g2" onclick="toTop('g2');" src="pics/pic3.jpg">
+		<img class="plane3" id="g3" onclick="toTop('g3');" src="pics/pic5.jpg" >
+	
+    <script type="text/javascript">
+    	var top ="g1";
+    	function toTop(newTop)
+    	{
+    		 domTop =document.getElementById('top').style;
+    		 domNew =document.getElementById('newTop').style;
+             domTop.zIndex=0;
+             domNew.zIndex=10;
+    	     top=newTop;
+    	}
+    </script>
+</body>
+</html>

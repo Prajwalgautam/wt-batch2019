@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calculator</title>
+</head>
+<body>
+	<input type="text" id="num1" placeholder="Enter 1st number">
+	<br>
+	<input type="text" id="num2"placeholder="Enter 2nd number">
+	<br>
+	<button onclick="add()">Add</button>
+	<button onclick="subtract()">Subtract</button>
+	<button onclick="divide()">Divide</button>
+	<button onclick="multiply()">Multiply</button>
+	<br>
+
+    
+	
+    <script type="text/javascript">
+    	function add(){
+    		  var a = document.getElementById('num1').value;
+		      var b = document.getElementById('num2').value;
+		      var c = parseInt(a)+parseInt(b);
+		      alert(c);
+		    	}
+	 	function subtract(){
+    		  var a = document.getElementById('num1').value;
+		      var b = document.getElementById('num2').value;
+		      var c = parseInt(a)-parseInt(b);
+		      alert(c);
+		    	}
+    	function multiply(){
+    		  var a = document.getElementById('num1').value;
+		      var b = document.getElementById('num2').value;
+		      var c = parseInt(a)*parseInt(b);
+		      alert(c);
+		    	}
+    	function divide(){
+    		  var a = document.getElementById('num1').value;
+		      var b = document.getElementById('num2').value;
+		      var c = parseInt(a)/parseInt(b);
+		      alert(c);
+		    	}
+
+      
+    </script>
+</body>
+</html>

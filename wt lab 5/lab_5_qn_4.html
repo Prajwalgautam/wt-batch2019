@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag And Drop</title>
+
+	<style type="text/css">
+		.c1{
+			position: absolute;
+			top: 200px;
+			left: 75px;
+			background-color: lightgrey;
+		}
+		.c2{
+			position: absolute;
+			top: 200px;
+			left: 150px;
+			background-color: lightgrey;
+		}
+		.c3{
+			position: absolute;
+			top: 200px;
+			left: 225px;
+			background-color: lightgrey;
+		}
+	</style>
+
+</head>
+<body>
+	<span class="c1" onmousedown="grabber(event);">candy</span>
+	<span class="c2" onmousedown="grabber(event);">prajwal</span>
+	<span class="c3" onmousedown="grabber(event);">me</span>
+		<script type="text/javascript">
+		var diffX,diffY,theElement;
+		function grabber(event){
+			theElement=event.currentTarget;
+			var posX=parseInt(theElement.style.left);
+			var posY=parseInt(theElement.style.top);
+			diffX=event.clientX - posX;
+			diffY=event.clientY - posY;
+			document.addEventListener("mousemove", mover , true);
+			document.addEventListener("mouseup", dropper , true);
+			event.stopPropagation();
+			event.preventDefault();
+		}
+		function mover(event){
+			theElement.style.left=(event.clientX - diffX) + "px";
+			theElement.style.top=(event.clientY - diffY) + "px";
+			event.stopPropagation();
+		}
+		function dropper(event){
+			document.removeEventListener("mouseup", dropper , true);
+			document.removeEventListener("mousemove", mover , true);
+			event.stopPropagation();
+		}
+	</script>
+
+
+</body>
+</html>
