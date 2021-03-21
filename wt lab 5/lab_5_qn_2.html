@@ -37,14 +37,25 @@
 		<img class="plane3" id="g3" onclick="toTop('g3');" src="pics/pic5.jpg" >
 	
     <script type="text/javascript">
-    	var top ="g1";
-    	function toTop(newTop)
+    	function toTop(id)
     	{
-    		 domTop =document.getElementById('top').style;
-    		 domNew =document.getElementById('newTop').style;
-             domTop.zIndex=0;
-             domNew.zIndex=10;
-    	     top=newTop;
+    		var domTop,domNew;
+    		if(id=='g1'){
+    		 document.getElementById("g1").style.zIndex="1";
+    		 document.getElementById("g2").style.zIndex="-1";
+    		 document.getElementById("g2").style.zIndex="0";
+    		}
+    		else if(id=='g2'){
+    		 document.getElementById("g1").style.zIndex="0";
+    		 document.getElementById("g2").style.zIndex="1";
+    		 document.getElementById("g2").style.zIndex="-1";
+    		}
+    		else if(id=='g3'){
+    		 document.getElementById("g1").style.zIndex="-1";
+    		 document.getElementById("g2").style.zIndex="0";
+    		 document.getElementById("g2").style.zIndex="1";
+    		}
+
     	}
     </script>
 </body>
