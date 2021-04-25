@@ -1,0 +1,54 @@
+MariaDB [gces]> INSERT INTO students
+    -> (NAME,ADDRESS,PHONE_NUMBER,BIO,USER_ID)
+    -> VALUES
+    -> ("PRAJWAL","POKHARA",9846938005,"I LOVE WATCHING LORD OF THE RINGS",25),
+    -> ("PRADIP","POKHARA",9817178165,"I AM A BARCELONA FAN",28),
+    -> ("NOLAN","TEXAS",9783443332,"I LOVE WATCHING VIKINGS",30),
+    -> ("FALCON","QUEENS",983487643,"I AM CAPTAIN AMERICA NOW",37),
+    -> ("JOHN","BARBADOS",978865654,"I AM US AGENT NOW",40);
+Query OK, 5 rows affected, 3 warnings (0.169 sec)
+Records: 5  Duplicates: 0  Warnings: 3
+MariaDB [gces]> SELECT * FROM students;
++----+---------+----------+--------------+-----------------------------------+---------+
+| ID | NAME    | ADDRESS  | PHONE_NUMBER | BIO                               | USER_ID |
++----+---------+----------+--------------+-----------------------------------+---------+
+|  1 | ALAN    | DHANGADI |     98763423 | STUDENT NO WORK YET               |    NULL |
+|  2 | BLAN    | DHANG    |   2147483647 | STUDENT NO WORK YET               |    NULL |
+|  3 | PRAJWAL | POKHARA  |   2147483647 | I LOVE WATCHING LORD OF THE RINGS |      25 |
+|  4 | PRADIP  | POKHARA  |   2147483647 | I AM A BARCELONA FAN              |      28 |
+|  5 | NOLAN   | TEXAS    |   2147483647 | I LOVE WATCHING VIKINGS           |      30 |
+|  6 | FALCON  | QUEENS   |    983487643 | I AM CAPTAIN AMERICA NOW          |      37 |
+|  7 | JOHN    | BARBADOS |    978865654 | I AM US AGENT NOW                 |      40 |
++----+---------+----------+--------------+-----------------------------------+---------+
+7 rows in set (0.031 sec)
+MariaDB [gces]> INSERT INTO users
+    -> (USER_NAME,PASSWORD,EMAIL)
+    ->  VALUES
+    -> ("NOOBMASTER69","JKD837SD","noob@gmail.com"),
+    -> ("MASTER69","AUIA37SD","master@gmail.com"),
+    -> ("PANDIT","AUSDHK7SD","pan@gmail.com"),
+    -> ("MANDY","JSARD784","mandy@gmail.com"),
+    -> ("CANDY","KGWASJHD","candy@gmail.com");
+Query OK, 5 rows affected (0.166 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+MariaDB [gces]> INSERT INTO addresses
+    -> (USER_ID,COUNTRY,STATE,DISTRICT,ADDRESS_1,ADDRESS_2)
+    -> VALUES
+    -> (12,"NEPAL","GANDAKI","KASKI","MAHENDRAPOOL","NAYABAZZAR"),
+    -> (2,"NEPAL","GANDAKI","KASKI","MAHENDRAPOOL","NADIPUIR"),
+    -> (142,"NEPAL","GANDAKI","KASKI","BAGAR","NAYABAZZAR"),
+    -> (32,"NEPAL","GANDAKI","KASKI","MAHENDRAPOOL","BAGAR"),
+    -> (124,"NEPAL","GANDAKI","KASKI","NADIPUR","NAYABAZZAR");
+Query OK, 5 rows affected (0.048 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+MariaDB [gces]> SELECT * FROM addresses;
++----+---------+---------+---------+----------+--------------+------------+
+| ID | USER_ID | COUNTRY | STATE   | DISTRICT | ADDRESS_1    | ADDRESS_2  |
++----+---------+---------+---------+----------+--------------+------------+
+|  1 |      12 | NEPAL   | GANDAKI | KASKI    | MAHENDRAPOOL | NAYABAZZAR |
+|  2 |       2 | NEPAL   | GANDAKI | KASKI    | MAHENDRAPOOL | NADIPUIR   |
+|  3 |     142 | NEPAL   | GANDAKI | KASKI    | BAGAR        | NAYABAZZAR |
+|  4 |      32 | NEPAL   | GANDAKI | KASKI    | MAHENDRAPOOL | BAGAR      |
+|  5 |     124 | NEPAL   | GANDAKI | KASKI    | NADIPUR      | NAYABAZZAR |
++----+---------+---------+---------+----------+--------------+------------+
+5 rows in set (0.001 sec)

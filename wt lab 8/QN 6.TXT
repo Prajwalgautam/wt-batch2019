@@ -1,0 +1,18 @@
+MariaDB [gces]> UPDATE students
+    -> SET NAME="AVICII",ADDRESS="SWEDEN"
+    -> WHERE NAME LIKE "A%";
+Query OK, 1 row affected (0.042 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+MariaDB [gces]> SELECT * FROM students;
++----+---------+----------+--------------+-----------------------------------+---------+
+| ID | NAME    | ADDRESS  | PHONE_NUMBER | BIO                               | USER_ID |
++----+---------+----------+--------------+-----------------------------------+---------+
+|  1 | AVICII  | SWEDEN   |     98763423 | STUDENT NO WORK YET               |    NULL |
+|  2 | BLAN    | DHANG    |   2147483647 | STUDENT NO WORK YET               |    NULL |
+|  3 | PRAJWAL | POKHARA  |   2147483647 | I LOVE WATCHING LORD OF THE RINGS |      25 |
+|  4 | PRADIP  | POKHARA  |   2147483647 | I AM A BARCELONA FAN              |      28 |
+|  5 | NOLAN   | TEXAS    |   2147483647 | I LOVE WATCHING VIKINGS           |      30 |
+|  6 | FALCON  | QUEENS   |    983487643 | I AM CAPTAIN AMERICA NOW          |      37 |
+|  7 | JOHN    | BARBADOS |    978865654 | I AM US AGENT NOW                 |      40 |
++----+---------+----------+--------------+-----------------------------------+---------+
+7 rows in set (0.001 sec)

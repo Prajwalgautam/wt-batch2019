@@ -1,0 +1,7 @@
+MariaDB [gces]> SELECT * FROM students WHERE NAME LIKE "A%";
++----+------+----------+--------------+---------------------+---------+
+| ID | NAME | ADDRESS  | PHONE_NUMBER | BIO                 | USER_ID |
++----+------+----------+--------------+---------------------+---------+
+|  1 | ALAN | DHANGADI |     98763423 | STUDENT NO WORK YET |    NULL |
++----+------+----------+--------------+---------------------+---------+
+1 row in set (0.106 sec)

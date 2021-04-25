@@ -1,0 +1,47 @@
+MariaDB [gces]> DESCRIBE students;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| ID           | int(11)      | NO   | PRI | NULL    | auto_increment |
+| NAME         | varchar(100) | YES  |     | NULL    |                |
+| ADDRESS      | varchar(100) | YES  |     | NULL    |                |
+| PHONE_NUMBER | int(11)      | YES  |     | NULL    |                |
+| BIO          | text         | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.021 sec)
+
+MariaDB [gces]> RENAME TABLE students TO Students;
+ERROR 1050 (42S01): Table 'students' already exists
+MariaDB [gces]> RENAME TABLE students TO student;
+Query OK, 0 rows affected (0.540 sec)
+
+MariaDB [gces]> RENAME TABLE student TO students;
+Query OK, 0 rows affected (0.162 sec)
+
+MariaDB [gces]> SHOW TABLES;
++----------------+
+| Tables_in_gces |
++----------------+
+| addresses      |
+| students       |
+| users          |
++----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [gces]> ALTER TABLE students
+    -> ADD USER_ID INT UNIQUE;
+Query OK, 0 rows affected (1.260 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [gces]> DESCRIBE students;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| ID           | int(11)      | NO   | PRI | NULL    | auto_increment |
+| NAME         | varchar(100) | YES  |     | NULL    |                |
+| ADDRESS      | varchar(100) | YES  |     | NULL    |                |
+| PHONE_NUMBER | int(11)      | YES  |     | NULL    |                |
+| BIO          | text         | YES  |     | NULL    |                |
+| USER_ID      | int(11)      | YES  | UNI | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.021 sec)

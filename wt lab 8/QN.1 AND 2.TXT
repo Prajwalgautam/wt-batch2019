@@ -1,0 +1,73 @@
+E:\xaammp\mysql>cd bin
+
+E:\xaammp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.18-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| gces               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.158 sec)
+MariaDB [(none)]> USE gces;
+Database changed
+MariaDB [gces]> DESCRIBE students;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| ID           | int(11)      | NO   | PRI | NULL    | auto_increment |
+| NAME         | varchar(100) | YES  |     | NULL    |                |
+| ADDRESS      | varchar(100) | YES  |     | NULL    |                |
+| PHONE_NUMBER | int(11)      | YES  |     | NULL    |                |
+| BIO          | text         | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.229 sec)
+MariaDB [gces]> CREATE TABLE addresses(
+    -> ID INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    -> USER_ID INT NOT NULL UNIQUE,
+    -> COUNTRY VARCHAR(40) NOT NULL,
+    -> STATE VARCHAR(40),
+    -> DISTRICT VARCHAR(40),
+    -> ADDRESS_1 VARCHAR(40),
+    -> ADDRESS_2 VARCHAR(40)
+    -> );
+Query OK, 0 rows affected (0.668 sec)
+
+MariaDB [gces]> SHOW TABLES;
++----------------+
+| Tables_in_gces |
++----------------+
+| addresses      |
+| students       |
++----------------+
+2 rows in set (0.001 sec)
+MariaDB [gces]> CREATE TABLE users(
+    -> ID INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    -> USER_ID INT NOT NULL UNIQUE,
+    -> PASSWORD TEXT NOT NULL,
+    -> EMAIL VARCHAR(30) NOT NULL UNIQUE
+    -> );
+Query OK, 0 rows affected (0.873 sec)
+
+MariaDB [gces]> SHOW TABLES;
++----------------+
+| Tables_in_gces |
++----------------+
+| addresses      |
+| students       |
+| users          |
++----------------+
+3 rows in set (0.001 sec)
