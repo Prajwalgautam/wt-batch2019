@@ -1,0 +1,92 @@
+Opening and Closing Files
+Files are opened in PHP using the fopen command. The command takes two parameters, the file
+to be opened, and the mode in which to open the file. The function returns a file pointer if
+successful, otherwise zero (false). Files are opened with fopen for reading or writing.
+
+$fp = fopen("myfile.txt", "r");
+If fopen is unable to open the file, it returns 0. This can be used to exit the function with an
+appropriate message.
+if ( !($fp = fopen("myfile.txt", "r") ) )
+exit("Unable to open the input file.");
+
+File Modes
+The following table shows the different modes the file may be opened in.
+
+Mode Description
+r: Read Only mode, with the file pointer at the start of the file.
+
+r+: Read/Write mode, with the file pointer at the start of the file.
+
+w: Write Only mode. Truncates the file (effectively overwriting it). If the file doesn't exist,
+fopen will attempt to create the file.
+
+w+: Read/Write mode. Truncates the file (effectively overwriting it). If the file doesn't exist,
+fopen will attempt to create the file.
+
+a: Append mode, with the file pointer at the end of the file. If the file doesn't exist, fopen
+will attempt to create the file.
+
+a+: Read/Append, with the file pointer at the end of the file. If the file doesn't exist, fopen
+will attempt to create the file.
+
+
+
+Closing a File:
+
+The fclose function is used to close a file when you are finished with it.
+fclose($fp);
+
+
+
+Reading from Files:
+
+You can read from files opened in r, r+, w+, and a+ mode. The feof function is used to determine
+if the end of file is true.
+
+if ( feof($fp) )
+echo "End of file<br>";
+The feof function can be used in a while loop, to read from the file until the end of file is
+encountered. A line at a time can be read with the fgets function:
+while( !feof($fp) ) {
+// Reads one line at a time, up to 254 characters. Each line ends with a newline.
+// If the length argument is omitted, PHP defaults to a length of 1024.
+$myline = fgets($fp, 255);
+echo $myline;
+}
+You can read in a single character at a time from a file using the fgetc function:
+while( !feof($fp) ) {
+// Reads one character at a time from the file.
+$ch = fgetc($fp);
+echo $ch;
+}
+
+Writing to Files:
+
+The fwrite function is used to write a string, or part of a string to a file. The function takes three
+parameters, the file handle, the string to write, and the number of bytes to write. If the number of
+bytes is omitted, the whole string is written to the file. If you want the lines to appear on separate
+lines in the file, use the \n character. Note: Windows requires a carriage return character as well as
+a new line character, so if you're using Windows, terminate the string with \r\n. The following
+example logs the visitor to a file, then displays all the entries in the file.
+<?php
+$logFile = "stats.txt";
+$fp = fopen($logFile, "a+"); // Open the file in append/read mode
+$userDetails = $_SERVER[‘HTTP_USER_AGENT’]; // Create a string containing user details
+if (isset($_SERVER[‘HTTP_REFERER’]))
+$userDetails .= " {$_SERVER[‘HTTP_REFERER’]}<br>\r\n";
+else
+$userDetails .= "<br>\r\n";
+fwrite($fp, "$userDetails"); // Write the user details to the file
+rewind($fp); // Move the file pointer to the start of the file
+$entries = 0;
+while(!feof($fp)) { // Display each line in the file
+$buffer = fgets($fp, 1024);
+if ($buffer != "") {
+echo $buffer;
+$entries++;
+}
+} // Show a summary
+echo "There are $entries entries in the log file<br>";
+fclose ($fp);
+?>
+
